@@ -26,12 +26,20 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text",
-      "required": true
-    },
     "year": {
       "type": "string",
+      "required": true
+    },
+    "duration": {
+      "type": "string",
+      "required": true
+    },
+    "audience": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
       "required": true
     },
     "body": {

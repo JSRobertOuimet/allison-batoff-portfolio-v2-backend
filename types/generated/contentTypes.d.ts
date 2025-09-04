@@ -384,6 +384,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    audience: Schema.Attribute.String & Schema.Attribute.Required;
     body: Schema.Attribute.RichText & Schema.Attribute.Required;
     categories: Schema.Attribute.Relation<
       'manyToMany',
@@ -393,6 +394,7 @@ export interface ApiCaseStudyCaseStudy extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
+    duration: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
