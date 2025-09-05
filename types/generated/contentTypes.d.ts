@@ -463,7 +463,7 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -477,6 +477,11 @@ export interface ApiDestinationDestination extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'location'> & Schema.Attribute.Required;
+    thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
