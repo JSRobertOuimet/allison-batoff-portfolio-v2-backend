@@ -14,7 +14,7 @@ export default {
             if (password === process.env.SECRET_PASSWORD) {
                 ctx.cookies.set("auth", "true", {
                     httpOnly: true,
-                    sameSite: "lax",
+                    sameSite: "none",
                     secure: process.env.NODE_ENV === "production",
                 });
                 ctx.body = { success: true };
