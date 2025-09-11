@@ -3,6 +3,8 @@ export default {
         try {
             const { password } = ctx.request.body;
 
+            console.log("ctx.request.secure:", ctx.request.secure);
+
             if (!password) {
                 ctx.status = 400;
                 ctx.body = { error: "Missing password." };
