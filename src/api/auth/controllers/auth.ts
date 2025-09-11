@@ -3,8 +3,6 @@ export default {
         try {
             const { password } = ctx.request.body;
 
-            console.log("ctx.request.secure:", ctx.request.secure);
-
             if (!password) {
                 ctx.status = 400;
                 ctx.body = { error: "Missing password." };
@@ -12,13 +10,13 @@ export default {
             }
 
             if (password === process.env.SECRET_PASSWORD) {
+                const isProduction =
+                    process.env.NODE_ENV === "production";
+
                 ctx.cookies.set("auth", "true", {
                     httpOnly: true,
-                    sameSite: "none",
-                    secure:
-                        process.env.NODE_ENV === "production"
-                            ? true
-                            : false,
+                    sameSite: isProduction ? "none" : "lax",
+                    secure: isProduction,
                 });
                 ctx.body = { success: true };
             } else {
@@ -26,8 +24,6 @@ export default {
                 ctx.body = { error: "Invalid password." };
             }
         } catch (err) {
-            strapi.log.error("Login route error:", err);
-
             ctx.status = 500;
             ctx.body = {
                 error: "Internal server error.",
