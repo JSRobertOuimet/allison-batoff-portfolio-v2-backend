@@ -28,10 +28,15 @@ export default [
         },
     },
     "strapi::cors",
+    "global::no-index",
     "strapi::poweredBy",
     "strapi::query",
     "strapi::body",
     "strapi::session",
     "strapi::favicon",
     "strapi::public",
+    {
+        name: "global::no-index",
+        config: {},
+    },
 ];
