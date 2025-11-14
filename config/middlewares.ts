@@ -34,9 +34,9 @@ export default [
     "strapi::body",
     "strapi::session",
     "strapi::favicon",
-    "strapi::public",
     {
         name: "global::no-index",
         config: {},
     },
+    "strapi::public",
 ];
