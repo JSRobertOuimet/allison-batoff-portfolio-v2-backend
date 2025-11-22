@@ -14,7 +14,7 @@
     "thumbnail": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
@@ -52,6 +52,11 @@
     "audience": {
       "type": "string",
       "required": true
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "required": true,
+      "default": false
     },
     "body": {
       "type": "richtext",
